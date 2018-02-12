@@ -12,6 +12,7 @@ PROPS
 | currentPage | Number |  | REQUIRED - Current active page |
 | onChange | Function |  | REQUIRED - Handler callback function |
 | displayRange | Number | 3 | Number of page to display from left and right of current page |
+| ContainerEl | String | 'ul' | Element type for container |
 | containerClass | String | 'react-recompose-pagination' | Container class name |
 | PageEl | String | 'li' | Element type for page |
 | pageClassName | String | 'react-recompose-pagination__page' | Page class name |
