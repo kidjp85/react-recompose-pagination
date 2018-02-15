@@ -16,54 +16,36 @@ const elementPropTypes = oneOfType([element, string, node]);
 const ReactRecomposePagination = props => {
   const {
     ContainerEl,
-    PageEl,
-    containerClassName,
-    firstClassName,
-    lastClassName,
-    prevClassName,
-    nextClassName,
-    prevSetClassName,
-    nextSetClassName,
-    first,
-    last,
-    prev,
-    next,
-    prevSet,
-    nextSet,
-    isPrevDisabled,
-    isNextDisabled,
+    WrapperEl,
     visibleRange,
-    hideFirstAndLast,
+    containerClassName,
+    wrapperClassName,
+    renderPage,
     renderFirst,
-    renderLast,
     renderPrev,
-    renderNext,
     renderPrevSet,
     renderNextSet,
-    goFirst,
-    goLast,
-    goPrev,
-    goNext,
-    isNextSetHidden,
-    isPrevSetHidden,
-    renderPage
+    renderNext,
+    renderLast
   } = props;
 
   return (
     <ContainerEl className={containerClassName}>
-      {renderFirst({ first, firstClassName, goFirst, isPrevDisabled, hideFirstAndLast, PageEl })}
-      {renderPrev({ prev, prevClassName, goPrev, isPrevDisabled, PageEl })}
-      {renderPrevSet({ prevSet, prevSetClassName, isPrevSetHidden, PageEl })}
-      {visibleRange.map(renderPage)}
-      {renderNextSet({ nextSet, nextSetClassName, isNextSetHidden, PageEl })}
-      {renderNext({ next, nextClassName, goNext, isNextDisabled, PageEl })}
-      {renderLast({ last, lastClassName, goLast, isNextDisabled, hideFirstAndLast, PageEl })}
+      <WrapperEl className={wrapperClassName}>
+        {renderFirst(props)}
+        {renderPrev(props)}
+        {renderPrevSet(props)}
+        {visibleRange.map(renderPage)}
+        {renderNextSet(props)}
+        {renderNext(props)}
+        {renderLast(props)}
+      </WrapperEl>
     </ContainerEl>
   );
 };
 
 export default compose(
-  setDisplayName('Pagination'),
+  setDisplayName('ReactRecomposePagination'),
   setPropTypes({
     total: number.isRequired,
     currentPage: number.isRequired,
@@ -77,6 +59,8 @@ export default compose(
     renderNextSet: func,
     ContainerEl: string,
     containerClassName: string,
+    WrapperEl: string,
+    wrapperClassName: string,
     PageEl: string,
     pageClassName: string,
     first: elementPropTypes,
@@ -94,7 +78,8 @@ export default compose(
     hideFirstAndLast: bool
   }),
   defaultProps({
-    ContainerEl: 'ul',
+    ContainerEl: 'nav',
+    WrapperEl: 'ul',
     PageEl: 'li',
     first: 'First',
     last: 'Last',
@@ -103,6 +88,7 @@ export default compose(
     prevSet: '...',
     nextSet: '...',
     containerClassName: 'react-recompose-pagination',
+    wrapperClassName: 'react-recompose-pagination__wrapper',
     pageClassName: 'react-recompose-pagination__page',
     firstClassName: 'react-recompose-pagination__first',
     lastClassName: 'react-recompose-pagination__last',
