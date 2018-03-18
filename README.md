@@ -1,4 +1,4 @@
-react-recompose-pagination ( Newest version 0.1.2 )
+react-recompose-pagination ( Newest version 0.1.4 )
 ======================================
 
 > Fully customizable react pagination component 
@@ -12,8 +12,10 @@ PROPS
 | currentPage | Number |  | REQUIRED - Current active page |
 | onChange | Function |  | REQUIRED - Handler callback function |
 | displayRange | Number | 3 | Number of page to display from left and right of current page |
-| ContainerEl | String | 'ul' | Element type for container |
+| ContainerEl | String | 'nav' | Element type for container |
 | containerClass | String | 'react-recompose-pagination' | Container class name |
+| WrapperEl | String | 'ul' | Element type for wrapper |
+| wrapperClassName | String | 'react-recompose-pagination__wrapper' | Wrapper class name |
 | PageEl | String | 'li' | Element type for page |
 | pageClassName | String | 'react-recompose-pagination__page' | Page class name |
 | first | String or Element or Node | 'First' | First button content |
@@ -55,8 +57,8 @@ yarn add react-recompose-pagination
 
 ## You can also use the standalone UMD build
 ```html
-<script src="https://unpkg.com/react-recompose-pagination@0.1.2/lib/react-recompose-pagination.js"></script>
-<script src="https://unpkg.com/react-recompose-pagination@0.1.2/lib/react-recompose-pagination.min.js"></script>
+<script src="https://unpkg.com/react-recompose-pagination@0.1.4/lib/react-recompose-pagination.js"></script>
+<script src="https://unpkg.com/react-recompose-pagination@0.1.4/lib/react-recompose-pagination.min.js"></script>
 ```
 
 ## License
